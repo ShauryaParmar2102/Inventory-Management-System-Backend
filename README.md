@@ -470,6 +470,67 @@ The backend API will normally run at:
 http://localhost:8000/api/v1
 ```
 
+## 🔗 How the Frontend and Backend Communicate
+
+The frontend and backend are stored in separate repositories, but they work together as one full-stack application.
+
+The **React frontend** communicates with the **Express backend** by sending HTTP requests to the REST API using **RTK Query**.
+
+```text
+⚛️ React Frontend
+localhost:5173
+       │
+       │ HTTP Request
+       ▼
+🌐 Express REST API
+localhost:8000/api/v1
+       │
+       ▼
+🛣️ Express Route
+       │
+       ▼
+🎮 Controller
+       │
+       ▼
+⚙️ Service
+       │
+       ▼
+🔗 Mongoose
+       │
+       ▼
+🍃 MongoDB
+```
+
+For example, when the user views the products page:
+
+```text
+React Component
+      ↓
+RTK Query
+      ↓
+GET /api/v1/products
+      ↓
+Express Backend
+      ↓
+MongoDB
+      ↓
+JSON Response
+      ↓
+RTK Query
+      ↓
+React displays the products
+```
+
+The frontend uses an environment variable to specify the location of the backend API:
+
+```env
+VITE_BASE_URL=http://localhost:8000/api/v1
+```
+
+This allows the frontend and backend to remain as separate applications and repositories while still communicating through the REST API.
+
+Actions such as **creating products, adding stock, recording sales, updating products and deleting records** are sent from the frontend to the backend. The backend processes the request, communicates with MongoDB and returns a response to the frontend.
+
 Both applications need to be running for the complete Inventory Management System to work.
 
 # 👨‍💻 Author
