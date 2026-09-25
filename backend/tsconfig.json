@@ -1,0 +1,29 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+
+   // TypeScript compiler settings
+  "compilerOptions": {
+
+    "module": "nodenext", // Uses Node's modern ECMAScript module system
+    "target": "esnext",  // Compiles using the latest JavaScript features
+    "types": [], // No global type packages are included automatically
+
+    // Other Outputs
+    "sourceMap": true, // Creates source map files to help with debugging TypeScript
+    "declaration": false,  // Generates .d.ts type declaration files
+    "declarationMap": false, // Generates source maps for the declaration files
+
+    // Stricter Typechecking Options 
+    "noUncheckedIndexedAccess": true,  // Makes indexed values possibly undefined unless checked first
+    "exactOptionalPropertyTypes": true, // Makes optional properties behave more strictly
+
+    // Recommended Options
+    "strict": true, // Enables TypeScript's strict type checking
+    "jsx": "react-jsx",  // Enables JSX support for React
+    "verbatimModuleSyntax": true, // Keeps import/export syntax exactly as written
+    "isolatedModules": true, // Makes sure each file can be compiled independently
+    "noUncheckedSideEffectImports": true,  // Checks imports that are only used for side effects
+    "moduleDetection": "force", // Forces TypeScript to decide whether every file is a module
+    "skipLibCheck": true,   // Skips type checking inside installed library declaration files
+  }
+}
